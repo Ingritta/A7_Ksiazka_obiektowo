@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "KsiazkaAdresowa.h"
+#include "ListaKontaktow.h"
 
 using namespace std;
 
@@ -10,6 +11,9 @@ int main() {
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+
+    ListaKontaktow listaKontaktow ("Kontakty.txt");
+    //listaKontaktow.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
     return 0;
 }

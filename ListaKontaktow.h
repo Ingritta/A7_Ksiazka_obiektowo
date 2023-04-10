@@ -12,6 +12,7 @@ public:
     ListaKontaktow(string nazwaPlikuZAdresatami) : adresatMenedzer(nazwaPlikuZAdresatami) {
         adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     };
+    void wyswietlWszystkichAdresatow();
 };
 
 #endif

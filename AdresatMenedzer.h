@@ -1,4 +1,4 @@
-#ifndef ADRESATKMENEDZER_H
+#ifndef ADRESATMENEDZER_H
 #define ADRESATMENEDZER_H
 
 #include <iostream>
@@ -6,6 +6,7 @@
 #include <windows.h>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 #include "Adresat.h"
 #include "PlikZAdresatami.h"
@@ -13,20 +14,29 @@
 using namespace std;
 
 class AdresatMenedzer {
-    int idZalogowanegoUzytkownika;
-    //vector <Uzytkownik> uzytkownicy;
+    int idOstatniegoAdresata;
     vector <Adresat> adresaci;
-
-    //Uzytkownik podajDaneNowegoUzytkownika();
-    //int pobierzIdNowegoUzytkownika();
-    //bool czyIstniejeLogin(string login);
+    string daneAdresataOddzielonePionowymiKreskami;
+    int idZalogowanegoUzytkownika;//zrobic zmienna globalna
+    string daneJednegoAdresataOddzielonePionowymiKreskami;
+    int dodajAdresata();
     PlikZAdresatami plikZAdresatami;
 
 public:
+    Adresat adresat;
+    vector <Adresat> podajDaneNowegoAdresata();
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
-    //void rejestracjaUzytkownika();
-    //void wypiszWszystkichUzytkownikow();
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    void wyswietlWszystkichAdresatow();
+    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    void wyswietlDaneAdresata();
+    //Adresat wyswietlDaneAdresata();
+    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami();
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami();
+    string pobierzLiczbe(string tekst, int pozycjaZnaku);
+    void dopiszAdresataDoPliku();
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    Adresat pobierzDaneAdresata();
 };
 
 #endif
