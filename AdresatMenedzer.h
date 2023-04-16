@@ -15,28 +15,19 @@ using namespace std;
 
 class AdresatMenedzer {
     int idOstatniegoAdresata;
+    int idZalogowanegoUzytkownika;
     vector <Adresat> adresaci;
     string daneAdresataOddzielonePionowymiKreskami;
-    int idZalogowanegoUzytkownika;//zrobic zmienna globalna
-    string daneJednegoAdresataOddzielonePionowymiKreskami;
-    int dodajAdresata();
     PlikZAdresatami plikZAdresatami;
+    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    void wyswietlDaneAdresata();
 
 public:
-    Adresat adresat;
-    vector <Adresat> podajDaneNowegoAdresata();
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
+    vector <Adresat> podajDaneNowegoAdresata();
     void wyswietlWszystkichAdresatow();
-    string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-    void wyswietlDaneAdresata();
-    //Adresat wyswietlDaneAdresata();
-    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami();
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami();
-    string pobierzLiczbe(string tekst, int pozycjaZnaku);
-    void dopiszAdresataDoPliku();
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
-    Adresat pobierzDaneAdresata();
-};
+    int dodajAdresata();
+    int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    };
 
 #endif

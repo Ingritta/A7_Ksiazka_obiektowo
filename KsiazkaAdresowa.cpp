@@ -4,6 +4,26 @@ void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
+int KsiazkaAdresowa::logowanieUzytkownika() {
+    uzytkownikMenedzer.logowanieUzytkownika();
+}
+
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
+}
+
+void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
+    uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
+}
+
+void KsiazkaAdresowa::wczytajUzytkownikowZPliku() {
+    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+}
+
+char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
+    uzytkownikMenedzer.wybierzOpcjeZMenuGlownego();
+}
+
+char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
+    uzytkownikMenedzer.wybierzOpcjeZMenuUzytkownika();
 }
