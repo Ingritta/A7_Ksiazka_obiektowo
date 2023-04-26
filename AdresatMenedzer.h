@@ -14,20 +14,21 @@
 using namespace std;
 
 class AdresatMenedzer {
-    int idOstatniegoAdresata;
     int idZalogowanegoUzytkownika;
-    vector <Adresat> adresaci;
     string daneAdresataOddzielonePionowymiKreskami;
     PlikZAdresatami plikZAdresatami;
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
     void wyswietlDaneAdresata();
 
 public:
+    int idOstatniegoAdresata;
+    vector <Adresat> adresaci;
     AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {};
-    vector <Adresat> podajDaneNowegoAdresata();
-    void wyswietlWszystkichAdresatow();
     int dodajAdresata();
+    void wyswietlWszystkichAdresatow();
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    bool sprawdzCzyWpisanoAdresatow();
+    void wylogujUzytkownika();
+    char wybierzOpcjeZMenuUzytkownika();
     };
 
 #endif

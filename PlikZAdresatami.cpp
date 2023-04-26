@@ -5,9 +5,11 @@
 int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
 {
     Adresat adresat;
+    vector <Adresat> adresaci;
     fstream plikTekstowy;
     int idOstatniegoAdresata = 0;
     string daneOstaniegoAdresataWPliku = "";
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
 
     plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
 
@@ -73,7 +75,7 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     system("pause");
 }
 
-int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneOstaniegoAdresataWPliku)
+int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami)
 {
     int pozycjaRozpoczeciaIdAdresata = 0;
     int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
@@ -146,4 +148,42 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
 
     return liniaZDanymiAdresata;
+}
+
+int PlikZAdresatami::dodajAdresata() {
+    Adresat adresat;
+    vector <Adresat> adresaci;
+    system("cls");
+    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+    adresat = podajDaneNowegoAdresata();
+
+    adresaci.push_back(adresat);
+    dopiszAdresataDoPliku(adresat);
+
+    return ++idOstatniegoAdresata;
+}
+
+Adresat PlikZAdresatami::podajDaneNowegoAdresata() {
+    Adresat adresat;
+    adresat.ustawId(++idOstatniegoAdresata);
+    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+
+    cout << "Podaj imie: ";
+    adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
+    adresat.ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImie()));
+
+    cout << "Podaj nazwisko: ";
+    adresat.ustawNazwisko(MetodyPomocnicze::wczytajLinie());
+    adresat.ustawNazwisko(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzNazwisko()));
+
+    cout << "Podaj numer telefonu: ";
+    adresat.ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
+
+    cout << "Podaj email: ";
+    adresat.ustawEmail(MetodyPomocnicze::wczytajLinie());
+
+    cout << "Podaj adres: ";
+    adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
+
+    return adresat;
 }

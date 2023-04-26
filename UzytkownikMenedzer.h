@@ -15,7 +15,6 @@ using namespace std;
 class UzytkownikMenedzer {
     int idZalogowanegoUzytkownika;
     vector <Uzytkownik> uzytkownicy;
-
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
@@ -30,7 +29,9 @@ public:
     void zmianaHaslaZalogowanegoUzytkownika();
     void zapiszWszystkichUzytkownikowDoPliku();
     char wybierzOpcjeZMenuGlownego();
-    char wybierzOpcjeZMenuUzytkownika();
+    bool sprawdzCzyUzytkownikJestZalogowany();
+    int pobierzIdZalogowanegoUzytkownika();
+    int ustawIdZalogowanegoUzytkownika();
 };
 
 #endif

@@ -5,7 +5,7 @@
 #include "AdresatMenedzer.h"
 
 using namespace std;
-
+/*
 class ListaKontaktow {
     AdresatMenedzer adresatMenedzer;
 public:
@@ -16,7 +16,7 @@ public:
     int wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void wyswietlWszystkichAdresatow();
 };
-
+*/
 #endif
 
 

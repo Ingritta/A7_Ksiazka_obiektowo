@@ -6,22 +6,16 @@
 using namespace std;
 
 int main() {
-    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt");
-    ListaKontaktow listaKontaktow ("Kontakty.txt");
-    vector <Adresat> adresaci;
+    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Kontakty.txt");
 
-    //ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-    //system ("pause");
-
-   int idZalogowanegoUzytkownika = 0;
-   int idOstatniegoAdresata = 0;
-   // int idUsunietegoAdresata = 0;
-   char wybor;
+    char wybor;
 
     ksiazkaAdresowa.wczytajUzytkownikowZPliku();
+    ksiazkaAdresowa.ustawIdZalogowanegoUzytkownika();
 
     while (true) {
-        if (idZalogowanegoUzytkownika == 0) {
+        if (ksiazkaAdresowa.sprawdzCzyUzytkownikJestZalogowany() == true) {
+
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
             switch (wybor) {
@@ -29,7 +23,7 @@ int main() {
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                idZalogowanegoUzytkownika = ksiazkaAdresowa.logowanieUzytkownika();
+                ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -40,41 +34,44 @@ int main() {
                 break;
             }
         } else {
+            if (ksiazkaAdresowa.sprawdzCzyWpisanoAdresatow() == true) {
+                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
-            if (adresaci.empty() == true)
-                idOstatniegoAdresata = listaKontaktow.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+                wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
-            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
-
-            switch (wybor) {
-            case '1':
-                idOstatniegoAdresata = listaKontaktow.dodajAdresata();
-                break;
-            case '2':
-                //wyszukajAdresatowPoImieniu(adresaci);
-                break;
-            case '3':
-                //wyszukajAdresatowPoNazwisku(adresaci);
-                break;
-            case '4':
-                listaKontaktow.wyswietlWszystkichAdresatow();
-                break;
-            case '5':
-                //idUsunietegoAdresata = usunAdresata(adresaci);
-                //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
-                break;
-            case '6':
-                //edytujAdresata(adresaci);
-                break;
-            case '7':
-                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-                break;
-            case '8':
-                idZalogowanegoUzytkownika = 0;
-                adresaci.clear();
-                break;
+                switch (wybor) {
+                case '1':
+                    ksiazkaAdresowa.dodajAdresata();
+                    break;
+                case '2':
+                    //wyszukajAdresatowPoImieniu(adresaci);
+                    break;
+                case '3':
+                    //wyszukajAdresatowPoNazwisku(adresaci);
+                    break;
+                case '4':
+                    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                    break;
+                case '5':
+                    //idUsunietegoAdresata = usunAdresata(adresaci);
+                    //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+                    break;
+                case '6':
+                    //edytujAdresata(adresaci);
+                    break;
+                case '7':
+                    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                    break;
+                case '8':
+                    ksiazkaAdresowa.wylogujUzytkownika();
+                    break;
+                }
             }
         }
     }
     return 0;
 }
+
+/*ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+system ("pause");
+*/

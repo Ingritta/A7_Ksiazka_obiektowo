@@ -7,6 +7,7 @@ using namespace std;
 
 class Uzytkownik {
     int id;
+    //int idZalogowanegoUzytkownika;
     string login;
     string haslo;
 
@@ -18,6 +19,7 @@ public:
     int pobierzId();
     string pobierzLogin();
     string pobierzHaslo();
+    //int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif
