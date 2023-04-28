@@ -25,7 +25,3 @@ string Uzytkownik::pobierzHaslo() {
     return haslo;
 }
 
-/*int Uzytkownik::pobierzIdZalogowanegoUzytkownika() {
-    return idZalogowanegoUzytkownika;
-}
-*/

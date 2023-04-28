@@ -11,7 +11,6 @@ int main() {
     char wybor;
 
     ksiazkaAdresowa.wczytajUzytkownikowZPliku();
-    ksiazkaAdresowa.ustawIdZalogowanegoUzytkownika();
 
     while (true) {
         if (ksiazkaAdresowa.sprawdzCzyUzytkownikJestZalogowany() == true) {

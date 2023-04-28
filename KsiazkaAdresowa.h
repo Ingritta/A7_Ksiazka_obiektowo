@@ -16,7 +16,6 @@ public:
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
     };
     void rejestracjaUzytkownika();
-    //int logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     void zmianaHaslaZalogowanegoUzytkownika();
@@ -28,18 +27,9 @@ public:
     bool sprawdzCzyUzytkownikJestZalogowany();
     bool sprawdzCzyWpisanoAdresatow();
     void wylogujUzytkownika();
-    int ustawIdZalogowanegoUzytkownika();
+    int ustawIdZalogowanegoUzytkownikaNaZero();
     int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif
 
-/*
-    KsiazkaAdresowa(string nazwaPlikuZAdresatami) : adresatMenedzer(nazwaPlikuZAdresatami) {
-       adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-   };
-
-      KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami){
-       uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-   };
-   */

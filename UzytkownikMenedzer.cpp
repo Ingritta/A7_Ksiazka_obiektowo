@@ -127,8 +127,6 @@ char UzytkownikMenedzer::wybierzOpcjeZMenuGlownego() {
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
     idZalogowanegoUzytkownika = logowanieUzytkownika();
-    cout << "idZalogowanegoUzytkownika w adresat UzytkownikMenedzer" << idZalogowanegoUzytkownika << endl;
-    system ("pause");
     return idZalogowanegoUzytkownika;
 }
 
@@ -140,7 +138,8 @@ bool UzytkownikMenedzer::sprawdzCzyUzytkownikJestZalogowany() {
     }
 }
 
-int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownika() {
+int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownikaNaZero() {
     idZalogowanegoUzytkownika = 0;
     return idZalogowanegoUzytkownika;
 }
+

@@ -31,7 +31,7 @@ public:
     char wybierzOpcjeZMenuGlownego();
     bool sprawdzCzyUzytkownikJestZalogowany();
     int pobierzIdZalogowanegoUzytkownika();
-    int ustawIdZalogowanegoUzytkownika();
+    int ustawIdZalogowanegoUzytkownikaNaZero();
 };
 
 #endif
