@@ -28,8 +28,11 @@ void AdresatMenedzer::wyswietlDaneAdresata() {
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
-    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+int AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
+    idOstatniegoAdresata = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    cout << "idZalogowanegoUzytkownika w funkcji AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku :" << idZalogowanegoUzytkownika << endl;
+    system ("pause");
+    return idOstatniegoAdresata;
 }
 
 bool AdresatMenedzer::sprawdzCzyWpisanoAdresatow() {
@@ -64,9 +67,9 @@ char AdresatMenedzer::wybierzOpcjeZMenuUzytkownika() {
 
 int AdresatMenedzer::dodajAdresata() {
     idOstatniegoAdresata = plikZAdresatami.dodajAdresata();
+    return idOstatniegoAdresata;
 }
 
 void AdresatMenedzer::wylogujUzytkownika() {
     adresaci.clear();
 }
-

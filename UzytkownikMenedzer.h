@@ -30,8 +30,8 @@ public:
     void zapiszWszystkichUzytkownikowDoPliku();
     char wybierzOpcjeZMenuGlownego();
     bool sprawdzCzyUzytkownikJestZalogowany();
-    int pobierzIdZalogowanegoUzytkownika();
     int ustawIdZalogowanegoUzytkownikaNaZero();
+    int pobierzIdZalogowanegoUzytkownika();
 };
 
 #endif

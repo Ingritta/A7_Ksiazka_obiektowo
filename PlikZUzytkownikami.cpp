@@ -106,4 +106,3 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku()
     }
     plikTekstowy.close();
 }
-

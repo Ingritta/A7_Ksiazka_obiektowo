@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "KsiazkaAdresowa.h"
-#include "ListaKontaktow.h"
 
 using namespace std;
 
@@ -22,7 +21,7 @@ int main() {
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                ksiazkaAdresowa.pobierzIdZalogowanegoUzytkownika();
+                ksiazkaAdresowa.logowanieUzytkownika();
                 break;
             case '9':
                 exit(0);
@@ -34,7 +33,6 @@ int main() {
             }
         } else {
             if (ksiazkaAdresowa.sprawdzCzyWpisanoAdresatow() == true) {
-                ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
                 wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 

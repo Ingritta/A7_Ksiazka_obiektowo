@@ -76,7 +76,7 @@ int UzytkownikMenedzer::logowanieUzytkownika() {
                 if (itr -> pobierzHaslo() == haslo) {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return itr -> pobierzId();
+                    return itr -> pobierzId();//lub pobierzId??
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
@@ -125,7 +125,7 @@ char UzytkownikMenedzer::wybierzOpcjeZMenuGlownego() {
     return wybor;
 }
 
-int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
+int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {//??
     idZalogowanegoUzytkownika = logowanieUzytkownika();
     return idZalogowanegoUzytkownika;
 }
@@ -142,4 +142,5 @@ int UzytkownikMenedzer::ustawIdZalogowanegoUzytkownikaNaZero() {
     idZalogowanegoUzytkownika = 0;
     return idZalogowanegoUzytkownika;
 }
+
 

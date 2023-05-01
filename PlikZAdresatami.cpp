@@ -2,7 +2,7 @@
 #include "MetodyPomocnicze.h"
 #include "AdresatMenedzer.h"
 
-int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
+int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
     Adresat adresat;
     vector <Adresat> adresaci;
     fstream plikTekstowy;
@@ -10,6 +10,7 @@ int PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
 
     plikTekstowy.open(nazwaPlikuZAdresatami.c_str(), ios::in);
 
+    cout << "idZalogowanegoUzytkownika w funkcji wczytaj adresatow w plikuZAdresatami :" << idZalogowanegoUzytkownika << endl;
     if (plikTekstowy.good() == true) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami()) {
@@ -140,7 +141,7 @@ int PlikZAdresatami::dodajAdresata() {
 Adresat PlikZAdresatami::podajDaneNowegoAdresata() {
     Adresat adresat;
     adresat.ustawId(++idOstatniegoAdresata);
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);//Jak pobrać ID Uzytkownika?
+    adresat.pobierzIdUzytkownika();
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
@@ -161,3 +162,4 @@ Adresat PlikZAdresatami::podajDaneNowegoAdresata() {
 
     return adresat;
 }
+
