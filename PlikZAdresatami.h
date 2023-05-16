@@ -14,22 +14,26 @@ using namespace std;
 class PlikZAdresatami {
     int idOstatniegoAdresata;
     Adresat adresat;
-    const string nazwaPlikuZAdresatami;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
     bool czyPlikJestPusty();
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     string daneJednegoAdresataOddzielonePionowymiKreskami;
     string daneAdresataOddzielonePionowymiKreskami;
 
 public:
-    PlikZAdresatami(string NAZWAPLIKUZADRESATAMI) : nazwaPlikuZAdresatami(NAZWAPLIKUZADRESATAMI) {};
-    int wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami();
-    int dodajAdresata();
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami();
+    PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+    idOstatniegoAdresata = 0;
+    };
+    int pobierzIdOstatniegoAdresata();
+    vector <Adresat>  wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneOstaniegoAdresataWPliku);//??
     void dopiszAdresataDoPliku(Adresat adresat);
-    Adresat pobierzDaneAdresata();
-    Adresat podajDaneNowegoAdresata();
-    int pobierzIdUzytkownika();//??
+    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
+    int pobierzIdUzytkownika();
+
+    //Adresat podajDaneNowegoAdresata();
+    void ustawIdOstatniegoAdresata(int idOstatniegoAdresata);
 };
 
 #endif

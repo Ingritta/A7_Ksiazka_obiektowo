@@ -14,8 +14,6 @@ void Uzytkownik::ustawHaslo(string noweHaslo) {
 }
 
 int Uzytkownik::pobierzId() {
-    cout << "ID Uzytkownika w Uzytkownik::pobierzId :" << id << endl;
-    system ("pause");
     return id;
 }
 

@@ -24,7 +24,7 @@ public:
     string pobierzHaslo();
     string pobierzAdres();
     void ustawId(int noweId);
-    void ustawIdUzytkownika(int noweIdUzytkownika);
+    void ustawIdZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
     void ustawImie(string noweImie);
     void ustawNazwisko(string noweNazwisko);
     void ustawNumerTelefonu(string nowyNumerTelefonu);

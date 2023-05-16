@@ -3,16 +3,15 @@
 void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
-
+/*
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
-
-int KsiazkaAdresowa::logowanieUzytkownika() {
-    idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-    cout << "idZalogowanegoUzytkownika w funkcji KsiazkaAdresowa::logowanieUzytkownika :" << idZalogowanegoUzytkownika << endl;
-    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-    return idZalogowanegoUzytkownika;
+*/
+void KsiazkaAdresowa::logowanieUzytkownika() {
+    int idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+    adresatMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
@@ -25,23 +24,19 @@ void KsiazkaAdresowa::wczytajUzytkownikowZPliku() {
 }
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
-    uzytkownikMenedzer.wybierzOpcjeZMenuGlownego();
+    return uzytkownikMenedzer.wybierzOpcjeZMenuGlownego();
 }
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
-    adresatMenedzer.wybierzOpcjeZMenuUzytkownika();
+    return adresatMenedzer.wybierzOpcjeZMenuUzytkownika();
 }
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
     adresatMenedzer.wyswietlWszystkichAdresatow();
 }
 
-int KsiazkaAdresowa::dodajAdresata() {
+void KsiazkaAdresowa::dodajAdresata() {
     adresatMenedzer.dodajAdresata();
-}
-
-bool KsiazkaAdresowa::sprawdzCzyUzytkownikJestZalogowany() {
-    uzytkownikMenedzer.sprawdzCzyUzytkownikJestZalogowany();
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika() {
@@ -50,5 +45,9 @@ void KsiazkaAdresowa::wylogujUzytkownika() {
 }
 
 bool KsiazkaAdresowa::sprawdzCzyWpisanoAdresatow() {
-    adresatMenedzer.sprawdzCzyWpisanoAdresatow();
+    return adresatMenedzer.sprawdzCzyWpisanoAdresatow();
+}
+
+bool KsiazkaAdresowa::sprawdzCzyUzytkownikJestZalogowany() {
+    return uzytkownikMenedzer.sprawdzCzyUzytkownikJestZalogowany();
 }

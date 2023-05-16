@@ -12,7 +12,7 @@ int main() {
     ksiazkaAdresowa.wczytajUzytkownikowZPliku();
 
     while (true) {
-        if (ksiazkaAdresowa.sprawdzCzyUzytkownikJestZalogowany() == true) {
+        if (ksiazkaAdresowa.sprawdzCzyUzytkownikJestZalogowany()) {
 
             wybor = ksiazkaAdresowa.wybierzOpcjeZMenuGlownego();
 
@@ -32,41 +32,39 @@ int main() {
                 break;
             }
         } else {
-            if (ksiazkaAdresowa.sprawdzCzyWpisanoAdresatow() == true) {
 
-                wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
+            wybor = ksiazkaAdresowa.wybierzOpcjeZMenuUzytkownika();
 
-                switch (wybor) {
-                case '1':
-                    ksiazkaAdresowa.dodajAdresata();
-                    break;
-                case '2':
-                    //wyszukajAdresatowPoImieniu(adresaci);
-                    break;
-                case '3':
-                    //wyszukajAdresatowPoNazwisku(adresaci);
-                    break;
-                case '4':
-                    ksiazkaAdresowa.wyswietlWszystkichAdresatow();
-                    break;
-                case '5':
-                    //idUsunietegoAdresata = usunAdresata(adresaci);
-                    //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
-                    break;
-                case '6':
-                    //edytujAdresata(adresaci);
-                    break;
-                case '7':
-                    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
-                    break;
-                case '8':
-                    ksiazkaAdresowa.wylogujUzytkownika();
-                    break;
-                }
+            switch (wybor) {
+            case '1':
+                ksiazkaAdresowa.dodajAdresata();
+                break;
+            case '2':
+                //wyszukajAdresatowPoImieniu(adresaci);
+                break;
+            case '3':
+                //wyszukajAdresatowPoNazwisku(adresaci);
+                break;
+            case '4':
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow();
+                break;
+            case '5':
+                //idUsunietegoAdresata = usunAdresata(adresaci);
+                //idOstatniegoAdresata = podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsunietegoAdresata, idOstatniegoAdresata);
+                break;
+            case '6':
+                //edytujAdresata(adresaci);
+                break;
+            case '7':
+                ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+                break;
+            case '8':
+                ksiazkaAdresowa.wylogujUzytkownika();
+                break;
             }
         }
     }
-    return 0;
+return 0;
 }
 
 /*ksiazkaAdresowa.wypiszWszystkichUzytkownikow();

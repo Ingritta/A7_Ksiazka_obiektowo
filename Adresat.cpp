@@ -1,14 +1,16 @@
 #include "Adresat.h"
 
 void Adresat::ustawId(int noweId) {
-    if (noweId >= 0)
+    if (noweId >= 0){
         id = noweId;
+    }
 }
 
-void Adresat::ustawIdUzytkownika(int noweIdUzytkownika) {
-    if (noweIdUzytkownika >= 0)
-    id = noweIdUzytkownika;
-    cout << "idUzytkownika w funkcji pobierzIdUzytkownika w Adresat::ustawIdUzytkownika :" << id << endl;
+void Adresat::ustawIdZalogowanegoUzytkownika(int idUzytkownika) {
+    if (idUzytkownika >= 0)
+    {
+        this -> idUzytkownika = idUzytkownika;
+    }
 }
 
 void Adresat::ustawImie(string noweImie) {
@@ -36,7 +38,6 @@ int Adresat::pobierzId() {
 }
 
 int Adresat::pobierzIdUzytkownika() {
-    cout << "idUzytkownika w funkcji pobierzIdUzytkownika w Adresat::pobierzIdUzytkownika :" << idUzytkownika <<endl;
     return idUzytkownika;
 }
 

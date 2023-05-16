@@ -1,0 +1,7 @@
+1|1|Q|Q|q|q|q|
+2|1|Qq|Qq|qq|qq|qq|
+2|2|W|W|w|w|w|
+3|2|Ww|Ww|ww|ww|ww|
+3|3|E|E|e|e|e|
+4|4|T|T|t|t|t|
+5|4|Tt|Tt|tt|tt|tt|
