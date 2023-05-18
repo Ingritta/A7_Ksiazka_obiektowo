@@ -1,6 +1,1 @@
-1|1|Q|Q|q|q|q|
-2|1|Qq|Qq|qq|qq|qq|
-3|2|W|W|w|w|w|
-4|2|Www|Ww|ww|www|ww|
-5|3|E|E|e|e|e|
-6|3|Ee|Ee|ee|ee|ee|
+1|1|W|W|||w|
