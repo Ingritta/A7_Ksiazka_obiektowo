@@ -5,11 +5,14 @@
 using namespace std;
 
 int main() {
-    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Kontakty.txt");
+    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt");
 
     char wybor;
 
     ksiazkaAdresowa.wczytajUzytkownikowZPliku();
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    system ("pause");
+
 
     while (true) {
         if (ksiazkaAdresowa.sprawdzCzyUzytkownikJestZalogowany()) {
@@ -64,9 +67,7 @@ int main() {
             }
         }
     }
-return 0;
+    return 0;
 }
 
-/*ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
-system ("pause");
-*/
+

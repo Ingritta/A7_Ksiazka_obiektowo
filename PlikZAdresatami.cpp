@@ -4,6 +4,7 @@
 
 vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika) {
     Adresat adresat;
+
     vector <Adresat> adresaci;
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
@@ -17,7 +18,7 @@ vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku
     if (plikTekstowy.good()) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami)) {
-                adresat = pobierzDaneAdresata(daneAdresataOddzielonePionowymiKreskami);
+                adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
             }
         }
@@ -107,11 +108,11 @@ Adresat PlikZAdresatami::pobierzDaneAdresata(string daneAdresataOddzielonePionow
     return adresat;
 }
 
-int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {//string daneJednegoAdresataOddzielonePionowymiKreskami
+int PlikZAdresatami::pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami) {
     int pozycjaRozpoczeciaIdUzytkownika = daneJednegoAdresataOddzielonePionowymiKreskami.find_first_of('|') + 1;
-    int idUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
+    int idZalogowanegoUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdUzytkownika));
 
-    return idUzytkownika;
+    return idZalogowanegoUzytkownika;
 }
 
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat) {
@@ -126,10 +127,6 @@ string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKre
     liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
 
     return liniaZDanymiAdresata;
-}
-
-void PlikZAdresatami::ustawIdOstatniegoAdresata(int idOstatniegoAdresata) {
-    this -> idOstatniegoAdresata = idOstatniegoAdresata;
 }
 
 int PlikZAdresatami::pobierzIdOstatniegoAdresata() {

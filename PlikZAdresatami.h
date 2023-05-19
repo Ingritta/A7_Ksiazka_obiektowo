@@ -19,21 +19,21 @@ class PlikZAdresatami {
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
     string daneJednegoAdresataOddzielonePionowymiKreskami;
     string daneAdresataOddzielonePionowymiKreskami;
+     int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
+     int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneOstaniegoAdresataWPliku);//??
+     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
 
 public:
     PlikZAdresatami(string nazwaPlikuZAdresatami) : NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
     idOstatniegoAdresata = 0;
     };
     int pobierzIdOstatniegoAdresata();
-    vector <Adresat>  wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
-    int pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(string daneJednegoAdresataOddzielonePionowymiKreskami);
-    int pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(string daneOstaniegoAdresataWPliku);//??
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);//?
     void dopiszAdresataDoPliku(Adresat adresat);
-    Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-    int pobierzIdUzytkownika();
 
-    //Adresat podajDaneNowegoAdresata();
-    void ustawIdOstatniegoAdresata(int idOstatniegoAdresata);
+
+    //nt pobierzIdUzytkownika();
+    //void ustawIdOstatniegoAdresata(int idOstatniegoAdresata);
 };
 
 #endif

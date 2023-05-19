@@ -1,9 +1,13 @@
 #include "AdresatMenedzer.h"
 #include "MetodyPomocnicze.h"
 #include "PlikZAdresatami.h"
-
+/*
 void AdresatMenedzer::ustawIdZalogowanegoUzytkownika(int idZalogowanegoUzytkownika) {
     this -> idZalogowanegoUzytkownika = idZalogowanegoUzytkownika;
+}
+*/
+void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
+    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
 
 void AdresatMenedzer::wyswietlWszystkichAdresatow() {
@@ -30,9 +34,6 @@ void AdresatMenedzer::wyswietlDaneAdresata(Adresat adresat) {
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-void AdresatMenedzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku() {
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-}
 
 bool AdresatMenedzer::sprawdzCzyWpisanoAdresatow() {
     if (adresaci.empty() == true) {
@@ -64,10 +65,6 @@ char AdresatMenedzer::wybierzOpcjeZMenuUzytkownika() {
     return wybor;
 }
 
-void AdresatMenedzer::wylogujUzytkownika() {
-    adresaci.clear();
-}
-
 void AdresatMenedzer::dodajAdresata() {
     Adresat adresat;
     system("cls");
@@ -79,8 +76,9 @@ void AdresatMenedzer::dodajAdresata() {
 
 Adresat AdresatMenedzer::podajDaneNowegoAdresata() {
     Adresat adresat;
-    adresat.ustawId(plikZAdresatami.pobierzIdOstatniegoAdresata() + 1);
-    adresat.ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
+
+    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata() + 1));
+    adresat.ustawIdZalogowanegoUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());

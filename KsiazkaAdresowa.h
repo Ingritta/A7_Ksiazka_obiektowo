@@ -10,27 +10,32 @@ using namespace std;
 
 class KsiazkaAdresowa {
     UzytkownikMenedzer uzytkownikMenedzer;
-    AdresatMenedzer adresatMenedzer;
-    void ustawIdZalogowanegoUzytkownikaNaZero();//?
-    int pobierzIdZalogowanegoUzytkownika();
+    AdresatMenedzer *adresatMenedzer;
+    const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), adresatMenedzer(nazwaPlikuZAdresatami) {
-        uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+        adresatMenedzer = NULL;
+    };
+    ~KsiazkaAdresowa() {
+        delete adresatMenedzer;
+        adresatMenedzer = NULL;
     };
     void rejestracjaUzytkownika();
-    //void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
+    void wczytajUzytkownikowZPliku();//nie ma
     void zmianaHaslaZalogowanegoUzytkownika();
-    char wybierzOpcjeZMenuGlownego();
-    char wybierzOpcjeZMenuUzytkownika();
+    char wybierzOpcjeZMenuGlownego();// nie ma
+    char wybierzOpcjeZMenuUzytkownika(); //nie ma
     void dodajAdresata();
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(); //nie ma
     void wyswietlWszystkichAdresatow();
-    bool sprawdzCzyUzytkownikJestZalogowany();
+    bool sprawdzCzyUzytkownikJestZalogowany(); //nie ma
+    bool sprawdzCzyWpisanoAdresatow(); //nie ma
     void wylogujUzytkownika();
+   void ustawIdZalogowanegoUzytkownikaNaZero(); //nie ma
+    int pobierzIdZalogowanegoUzytkownika(); //nie ma
     void logowanieUzytkownika();
-    bool sprawdzCzyWpisanoAdresatow();
+    void wypiszWszystkichUzytkownikow();
 };
 
 #endif

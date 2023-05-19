@@ -3,24 +3,36 @@
 void KsiazkaAdresowa::rejestracjaUzytkownika() {
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
-/*
+
 void KsiazkaAdresowa::wypiszWszystkichUzytkownikow() {
     uzytkownikMenedzer.wypiszWszystkichUzytkownikow();
 }
-*/
+
 void KsiazkaAdresowa::logowanieUzytkownika() {
-    int idZalogowanegoUzytkownika = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-    adresatMenedzer.ustawIdZalogowanegoUzytkownika(idZalogowanegoUzytkownika);
-    adresatMenedzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+   uzytkownikMenedzer.logowanieUzytkownika();
+    if (uzytkownikMenedzer.sprawdzCzyUzytkownikJestZalogowany() == false)
+    {
+        adresatMenedzer = new AdresatMenedzer(NAZWA_PLIKU_Z_ADRESATAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika() {
     uzytkownikMenedzer.zmianaHaslaZalogowanegoUzytkownika();
 }
 
+void KsiazkaAdresowa::wylogujUzytkownika() {
+    uzytkownikMenedzer.wylogujUzytkownika();
+    delete adresatMenedzer;
+    adresatMenedzer = NULL;
+}
+
+void KsiazkaAdresowa::dodajAdresata() {
+       adresatMenedzer -> dodajAdresata();
+}
+
 void KsiazkaAdresowa::wczytajUzytkownikowZPliku() {
-    uzytkownikMenedzer.wczytajUzytkownikowZPliku();
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownikaNaZero();
+    //uzytkownikMenedzer.ustawIdZalogowanegoUzytkownikaNaZero();
+    //plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 }
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
@@ -28,24 +40,15 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego() {
 }
 
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika() {
-    return adresatMenedzer.wybierzOpcjeZMenuUzytkownika();
+    return adresatMenedzer -> wybierzOpcjeZMenuUzytkownika();
 }
 
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow() {
-    adresatMenedzer.wyswietlWszystkichAdresatow();
-}
-
-void KsiazkaAdresowa::dodajAdresata() {
-    adresatMenedzer.dodajAdresata();
-}
-
-void KsiazkaAdresowa::wylogujUzytkownika() {
-    adresatMenedzer.wylogujUzytkownika();
-    uzytkownikMenedzer.ustawIdZalogowanegoUzytkownikaNaZero();
+    adresatMenedzer -> wyswietlWszystkichAdresatow();
 }
 
 bool KsiazkaAdresowa::sprawdzCzyWpisanoAdresatow() {
-    return adresatMenedzer.sprawdzCzyWpisanoAdresatow();
+    return adresatMenedzer -> sprawdzCzyWpisanoAdresatow();
 }
 
 bool KsiazkaAdresowa::sprawdzCzyUzytkownikJestZalogowany() {

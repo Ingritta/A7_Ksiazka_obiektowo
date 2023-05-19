@@ -14,26 +14,25 @@
 using namespace std;
 
 class AdresatMenedzer {
-    string daneAdresataOddzielonePionowymiKreskami;
-    PlikZAdresatami plikZAdresatami;
-    void wyswietlDaneAdresata(Adresat);
-    int idZalogowanegoUzytkownika;
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
+    PlikZAdresatami plikZAdresatami;
+
+    string daneAdresataOddzielonePionowymiKreskami;
+    Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    AdresatMenedzer(string nazwaPlikuZAdresatami) : plikZAdresatami(nazwaPlikuZAdresatami) {
+    AdresatMenedzer(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) : plikZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)  {
         idZalogowanegoUzytkownika = 0;
+        adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
-    void ustawIdZalogowanegoUzytkownika(int idZalogowanegoUzytkownika);
     void dodajAdresata();
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();//nie ma
+    bool sprawdzCzyWpisanoAdresatow();//nie ma
+    char wybierzOpcjeZMenuUzytkownika();//nie ma
+    int pobierzIdAdresata();//nie ma
     void wyswietlWszystkichAdresatow();
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
-    bool sprawdzCzyWpisanoAdresatow();
-    void wylogujUzytkownika();
-    char wybierzOpcjeZMenuUzytkownika();
-    int pobierzIdAdresata();
-    Adresat podajDaneNowegoAdresata();
-    void dodajAdresata(int idZalogowanegoUzytkownika);
 };
 
 #endif
