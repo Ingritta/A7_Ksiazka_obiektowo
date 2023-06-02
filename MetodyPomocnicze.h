@@ -17,6 +17,8 @@ public:
     static string wczytajLinie();
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     static char wczytajZnak();
+    static int wczytajLiczbeCalkowita();
+    static int podajIdWybranegoAdresata();
 };
 
 #endif

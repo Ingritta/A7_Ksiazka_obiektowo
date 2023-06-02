@@ -14,7 +14,7 @@ class KsiazkaAdresowa {
     const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZAdresatami) :  uzytkownikMenedzer(nazwaPlikuZUzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami) {
         adresatMenedzer = NULL;
     };
     ~KsiazkaAdresowa() {
@@ -22,20 +22,24 @@ public:
         adresatMenedzer = NULL;
     };
     void rejestracjaUzytkownika();
-    void wczytajUzytkownikowZPliku();//nie ma
+    void wczytajUzytkownikowZPliku();
     void zmianaHaslaZalogowanegoUzytkownika();
-    char wybierzOpcjeZMenuGlownego();// nie ma
-    char wybierzOpcjeZMenuUzytkownika(); //nie ma
+    char wybierzOpcjeZMenuGlownego();
+    char wybierzOpcjeZMenuUzytkownika();
     void dodajAdresata();
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(); //nie ma
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     void wyswietlWszystkichAdresatow();
-    bool sprawdzCzyUzytkownikJestZalogowany(); //nie ma
-    bool sprawdzCzyWpisanoAdresatow(); //nie ma
+    bool sprawdzCzyUzytkownikJestZalogowany();
+    bool sprawdzCzyWpisanoAdresatow();
     void wylogujUzytkownika();
-   void ustawIdZalogowanegoUzytkownikaNaZero(); //nie ma
-    int pobierzIdZalogowanegoUzytkownika(); //nie ma
+    void ustawIdZalogowanegoUzytkownikaNaZero();
+    int pobierzIdZalogowanegoUzytkownika();
     void logowanieUzytkownika();
     void wypiszWszystkichUzytkownikow();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void usunAdresata();
+    void edytujAdresata();
 };
 
 #endif

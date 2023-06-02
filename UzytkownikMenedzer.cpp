@@ -74,8 +74,6 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
 
-                    //cout << "idZalogowanegoUzytkownika w UzytkownikMenedzer::logowanieUzytkownika()" << idZalogowanegoUzytkownika << endl;
-                    //system ("pause");
                     return;
                 }
             }

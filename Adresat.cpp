@@ -3,8 +3,6 @@
 void Adresat::ustawId(int noweId) {
     if (noweId >= 0) {
         this -> id = noweId;
-        cout << "idAdresata w Adresat::ustawId()" << noweId << endl;
-        system ("pause");
     }
 }
 
@@ -35,8 +33,6 @@ void Adresat::ustawAdres(string nowyAdres) {
 }
 
 int Adresat::pobierzId() {
-     cout << "idAdresata w Adresat::pobierzId()" << id << endl;
-    system ("pause");
     return this -> id;
 }
 
