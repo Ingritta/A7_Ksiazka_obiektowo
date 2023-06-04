@@ -10,10 +10,10 @@ vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
 
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out |ios::app);
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out |ios::app);
     plikTekstowy.close();
 
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
 
     if (plikTekstowy.good()) {
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {
@@ -34,24 +34,16 @@ vector <Adresat>  PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku
     return adresaci;
 }
 
-bool PlikZAdresatami::czyPlikJestPusty() {
-    fstream plikTekstowy;
-
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
-
-    plikTekstowy.seekg(0, ios::end);
-    return plikTekstowy.tellg() == 0;
-}
-
 void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat) {
     fstream plikTekstowy;
     string liniaZDanymiAdresata = "";
-    plikTekstowy.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);
+
+    plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out | ios::app);
 
     if (plikTekstowy.good()) {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
 
-        if (czyPlikJestPusty()) {
+        if (PlikTekstowy::czyPlikJestPusty()) {
             plikTekstowy << liniaZDanymiAdresata;
         } else {
             plikTekstowy << endl << liniaZDanymiAdresata;
@@ -144,7 +136,7 @@ void PlikZAdresatami::usunAdresataZPliku() {
     cout << ">>> USUWANIE WYBRANEGO ADRESATA <<<" << endl << endl;
     idUsuwanegoAdresata = MetodyPomocnicze::podajIdWybranegoAdresata();
 
-    ksiazkaAdresowa.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    ksiazkaAdresowa.open(NAZWA_PLIKU.c_str(), ios::in);
     tymczasowaKsiazkaAdresowa.open("TymczasowaKsiazkaAdresowa.txt", ios::out | ios::app);
 
     if (ksiazkaAdresowa.good() && tymczasowaKsiazkaAdresowa.good() && idUsuwanegoAdresata != 0) {
@@ -195,7 +187,7 @@ void PlikZAdresatami::edytujWybranaLinieWPliku(string liniaZDanymiAdresata, int 
     string liniaZDanymiAdresataOddzielonePionowymiKreskami = "", wczytanaLinia = "";
     int numerWczytanejLinii = 1;
 
-    ksiazkaAdresowa.open(NAZWA_PLIKU_Z_ADRESATAMI.c_str(), ios::in);
+    ksiazkaAdresowa.open(NAZWA_PLIKU.c_str(), ios::in);
     tymczasowaKsiazkaAdresowa.open("TymczasowaKsiazkaAdresowa.txt", ios::out | ios::app);
 
     if (ksiazkaAdresowa.good() && tymczasowaKsiazkaAdresowa.good() && idEdytowanegoAdresata != 0) {
@@ -227,4 +219,18 @@ void PlikZAdresatami::edytujWybranaLinieWPliku(string liniaZDanymiAdresata, int 
     } else {
         cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
     }
+}
+
+void PlikZAdresatami::dopisz(string tekst) {
+    fstream plikTekstowy;
+    plikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::app);
+
+    if (plikTekstowy.good() == true) {
+        if (PlikTekstowy::czyPlikJestPusty())
+            plikTekstowy << "To jest poczatek pliku" << endl;
+
+        plikTekstowy << tekst << endl;
+    }
+
+    plikTekstowy.close();
 }
