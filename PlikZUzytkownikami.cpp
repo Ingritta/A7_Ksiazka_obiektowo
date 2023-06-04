@@ -8,7 +8,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik) {
     if (plikTekstowy.good() == true) {
         liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
 
-        if (czyPlikJestPusty() == true) {//jak zapisac?
+        if (czyPlikJestPusty() == true) {
             plikTekstowy << liniaZDanymiUzytkownika;
         } else {
             plikTekstowy << endl << liniaZDanymiUzytkownika;
@@ -33,7 +33,6 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku() {
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
     fstream plikTekstowy;
 
-    //plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::in);
     plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::in);
 
     if (plikTekstowy.good() == true) {
@@ -73,18 +72,17 @@ Uzytkownik PlikZUzytkownikami::pobierzDaneUzytkownika(string daneJednegoUzytkown
     return uzytkownik;
 }
 
-void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku()
+void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy)
 {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
-    vector <Uzytkownik> uzytkownicy;
     vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
 
-    //plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out);
     plikTekstowy.open(NAZWA_PLIKU.c_str(), ios::out);
 
     if (plikTekstowy.good() == true) {
         for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++) {
+
             liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(*itr);
 
             if (itr == itrKoniec) {
@@ -95,18 +93,8 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku()
             liniaZDanymiUzytkownika = "";
         }
     } else {
-        //cout << "Nie mozna otworzyc pliku " << NAZWA_PLIKU_Z_UZYTKOWNIKAMI << endl;
+
         cout << "Nie mozna otworzyc pliku " << NAZWA_PLIKU << endl;
     }
     plikTekstowy.close();
 }
-/*
-bool PlikZUzytkownikami::czyPlikJestPusty() {
-    fstream plikTekstowy;
-
-    plikTekstowy.open(NAZWA_PLIKU_Z_UZYTKOWNIKAMI.c_str(), ios::out | ios::app);
-
-    plikTekstowy.seekg(0, ios::end);
-    return plikTekstowy.tellg() == 0;
-}
-*/

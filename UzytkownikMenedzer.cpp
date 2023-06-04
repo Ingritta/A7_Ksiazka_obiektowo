@@ -1,5 +1,21 @@
 #include "UzytkownikMenedzer.h"
 
+char UzytkownikMenedzer::wybierzOpcjeZMenuGlownego() {
+    char wybor;
+
+    system("cls");
+    cout << "    >>> MENU  GLOWNE <<<" << endl;
+    cout << "---------------------------" << endl;
+    cout << "1. Rejestracja" << endl;
+    cout << "2. Logowanie" << endl;
+    cout << "9. Koniec programu" << endl;
+    cout << "---------------------------" << endl;
+    cout << "Twoj wybor: ";
+    wybor = MetodyPomocnicze::wczytajZnak();
+
+    return wybor;
+}
+
 void UzytkownikMenedzer::rejestracjaUzytkownika() {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
@@ -87,7 +103,6 @@ void UzytkownikMenedzer::logowanieUzytkownika() {
     system("pause");
     return;
 }
-
 void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
@@ -95,7 +110,7 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++) {
         if (itr -> pobierzId() == idZalogowanegoUzytkownika) {
-            itr -> pobierzHaslo() = noweHaslo;
+            itr -> ustawHaslo(noweHaslo);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
         }
@@ -104,23 +119,7 @@ void UzytkownikMenedzer::zmianaHaslaZalogowanegoUzytkownika() {
 }
 
 void UzytkownikMenedzer::zapiszWszystkichUzytkownikowDoPliku() {
-    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku();
-}
-
-char UzytkownikMenedzer::wybierzOpcjeZMenuGlownego() {
-    char wybor;
-
-    system("cls");
-    cout << "    >>> MENU  GLOWNE <<<" << endl;
-    cout << "---------------------------" << endl;
-    cout << "1. Rejestracja" << endl;
-    cout << "2. Logowanie" << endl;
-    cout << "9. Koniec programu" << endl;
-    cout << "---------------------------" << endl;
-    cout << "Twoj wybor: ";
-    wybor = MetodyPomocnicze::wczytajZnak();
-
-    return wybor;
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
 
 int UzytkownikMenedzer::pobierzIdZalogowanegoUzytkownika() {
